@@ -14,7 +14,7 @@ We release Allegro multi-card inference demo here. VideoSys support context-para
 
 Note that Allegro only support context-parallel with 8,4,2 cards. The context parallel number should be the factor of attention head dim (24) and context-length (79,200). You just need to pass the context-parallel num in `--num-gpus`. For more details please refer to `examples/allegro/sample.py`.
 
-See [model weights](https://huggingface.co/rhymes-ai/Allegro) and [original github code](https://github.com/rhymes-ai/Allegro) here.
+See [model weights](https://huggingface.co/rhymes-ai/Allegro) and [original github](https://github.com/rhymes-ai/Allegro) here.
 
 ## Quick start
 1. Install requirements with  VideoSys-the original repo's guidlines.
