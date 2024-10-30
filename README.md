@@ -7,6 +7,23 @@ An easy and efficient system for video generation
 <p align="center">| <a href="https://github.com/NUS-HPC-AI-Lab/VideoSys?tab=readme-ov-file#installation">Quick Start</a> | <a href="https://github.com/NUS-HPC-AI-Lab/VideoSys?tab=readme-ov-file#usage">Supported Models</a> | <a href="https://github.com/NUS-HPC-AI-Lab/VideoSys?tab=readme-ov-file#acceleration-techniques">Accelerations</a> | <a href="https://discord.gg/WhPmYm9FeG">Discord</a> | <a href="https://oahzxl.notion.site/VideoSys-News-42391db7e0a44f96a1f0c341450ae472?pvs=4">Media</a> | <a href="https://huggingface.co/VideoSys">HuggingFace Space</a> |
 </p>
 
+# Allegro
+
+We release Allegro multi-card inference demo here. VideoSys support context-parallel inference and Pyramid Attention Broadcast (PAB) which remarkably reduce the inference time. With 8xH800, Allegro can generate a 100 step 88 frames 720p(720x1280) video in 3 minutes. Further with PAB, the generate time can be reduced to 2 minutes. 
+
+Note that Allegro only support context-parallel with 8,4,2 cards. The context parallel number should be the factor of attention head dim (24) and context-length (79,200). You just need to pass the context-parallel num in `--num-gpus`. For more details please refer to `examples/allegro/sample.py`.
+
+## Quick start
+1. Install requirements with  VideoSys-the original repo's guidlines.
+2. run
+```python
+python examples/allegro/sample.py
+```
+For the consistency with the original repo, I hard-coded all the params. You can customize prompt, steps and other params in `examples/allegro/sample.py`.
+
+Thanks again for the original author of VideoSys!
+
+
 ### Latest News 🔥
 - [2024/09] Support [CogVideoX](https://github.com/THUDM/CogVideo), [Vchitect-2.0](https://github.com/Vchitect/Vchitect-2.0) and [Open-Sora-Plan v1.2.0](https://github.com/PKU-YuanGroup/Open-Sora-Plan).
 - [2024/08] 🔥 Evole from [OpenDiT](https://github.com/NUS-HPC-AI-Lab/VideoSys/tree/v1.0.0) to <b>VideoSys: An easy and efficient system for video generation</b>.
